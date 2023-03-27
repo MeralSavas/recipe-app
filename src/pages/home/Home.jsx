@@ -14,14 +14,26 @@ const Home = () => {
   const [recipes, setRecipes] = useState(null);
   const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
 
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
+  
 
-  const getData = async () => {
+  const getData = async (query, selectedMeal) => {
+    
     if (query) {
       try {
-        const { data } = await axios(url);
-        setRecipes(data.hits);
-      } catch (error) {
+    const { data } = await axios.get({
+      url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
+      headers: {
+        'X-Api-Key': 'XXBh7/w2WZ0h5gfFhzgNMA==ApNgdrvzZNKCOiLE'
+      },
+
+    // const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
+
+    
+        // const { data } = await axios(url);
+        // setRecipes(data.hits);
+      })
+      console.log(data)
+    } catch (error) {
         console.log(error);
       }
     } else {
@@ -40,7 +52,7 @@ const Home = () => {
         setQuery={setQuery}
         setSelectedMeal={setSelectedMeal}
         mealType={mealType}
-        getData={getData}
+        getData={()=> getData(query,selectedMeal)}
       />
 
       {!recipes && (
