@@ -6,8 +6,11 @@ import { HeaderText, HomeImg, ImgDiv } from "./Home.style";
 import homeSvg from "../../assets/home.svg";
 
 const Home = () => {
-  const APP_KEY =process.env.REACT_APP_APP_KEY
-  const APP_ID =process.env.REACT_APP_APP_ID
+  // const APP_KEY =process.env.REACT_APP_APP_KEY
+  // const APP_ID =process.env.REACT_APP_APP_ID
+
+  const APP_KEY ='72d812ef6ba14e7dae188d5d680c9276'
+  const APP_ID ='a105eab4'
   
   const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState("breakfast");
@@ -20,19 +23,12 @@ const Home = () => {
     
     if (query) {
       try {
-    const { data } = await axios.get({
-      url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
-      headers: {
-        'X-Api-Key': 'XXBh7/w2WZ0h5gfFhzgNMA==ApNgdrvzZNKCOiLE'
-      },
 
-    // const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
     
-        // const { data } = await axios(url);
-        // setRecipes(data.hits);
-      })
-      console.log(data)
+        const { data } = await axios(url);
+        setRecipes(data.hits);
     } catch (error) {
         console.log(error);
       }
