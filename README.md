@@ -1,4 +1,4 @@
-# Recipe App
+# Project Name : Recipe App
 
 ### Check The Live Website ➡️ [Live Website](https://sekunev-recipe-app.netlify.app/)
 
