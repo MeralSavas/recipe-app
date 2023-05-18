@@ -59,6 +59,6 @@ SOLUTION
 
 👉 I mastered ReactJS (Router, PrivateRouter, axios, useState, Props, Hook, Postman, Navigate), HTML, CSS, Local Storage, Bootstrap and Javascript features in this project. You can see the visual representation of the website above.
 
-# <center> ⌛ Happy Coding ✍ </center>
+### <center> ⌛ Happy Coding ✍ </center>
 
 
